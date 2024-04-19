@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: testunicorn
+  password: testunicorn
+  host: localhost
+  port: 5433  # Specify the port number here
+
+development:
+  <<: *default
+  database: testunicorn_dev
+
+test:
+  <<: *default
+  database: your_app_test
+
+production:
+  <<: *default
+  database: testunicorn
