@@ -43,16 +43,20 @@ set :repo_url, "git@github.com:riyasoner123/cap-unicorn-start.git"
 set :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 
-set :deploy_to, "/home/dev/PROJECT/demo"
+set :deploy_to, "/home/riya/cap_uni_test"
 set :keep_releases, 5
 set :nvm_type, :user
 set :nvm_node, 'v18.19.0'
 set :nvm_map_bins, %w{node npm yarn}
 set :rvm_type, :user
-set :rvm_ruby_version, '3.0.0'
-set :bundle_binstubs, true
+set :rvm_ruby_version, 'ruby-3.2.2'
+#set :bundle_binstubs, true
 set :local_user, -> { `git config user.name`.chomp }
 set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
+set :default_env, {
+  'PATH' => '$HOME/.rvm/gems/ruby-3.2.2/bin:$HOME/.rvm/bin:$PATH'
+}
+
 
 append :linked_files, "config/database.yml" , 'config/secrets.yml' ,'config/unicorn.rb'
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor/bundle", "storage"
