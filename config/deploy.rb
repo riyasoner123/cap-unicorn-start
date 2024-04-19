@@ -43,7 +43,7 @@ set :repo_url, "git@github.com:riyasoner123/cap-unicorn-start.git"
 set :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 
-set :deploy_to, "/home/riya/cap_uni_test"
+set :deploy_to, "/home/dev/PROJECT/demo"
 set :keep_releases, 5
 set :nvm_type, :user
 set :nvm_node, 'v18.19.0'
